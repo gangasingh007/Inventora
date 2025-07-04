@@ -1,4 +1,4 @@
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -46,35 +46,38 @@ export const register = async (req, res) => {
     }
 }
 
-export const login = async (req,res)=>{
-    const {username,password} = req.body;
+export const login = async (req, res) => {
+    const { username, password } = req.body;
 
-    if(!username || !password){
-        return res.ststus(401).json({
-            msg : "All the feilds are required"
-        })
+    if (!username || !password) {
+        return res.status(401).json({
+            msg: "All the fields are required"
+        });
     }
     try {
-        const user = await User.findOne({
-            username : username
-        })
-        if (!user){
+        const user = await User.findOne({ username });
+        if (!user) {
             return res.status(403).json({
-                msg : "User Doesnt Exist"
-            })
+                msg: "User Doesn't Exist"
+            });
         }
 
-        const isMatch = await bcrypt.compare(password,user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(401).json({
+                msg: "Invalid credentials"
+            });
+        }
 
-        const token = jwt.sign(user._id,process.env.JWT_SECRET,{
-            expiresIn : "7d"
-        })
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: "7d"
+        });
 
-         res.status(201).json({
-            msg: "User created successfully",
+        return res.status(200).json({
+            msg: "User logged in successfully",
             token,
             user: {
-                id : user._id,
+                id: user._id,
                 username: user.username,
                 email: user.email,
                 role: user.role
@@ -82,6 +85,6 @@ export const login = async (req,res)=>{
         });
 
     } catch (error) {
-        res.status(500).json({ msg: "Ther Was an error login in the user", error: error.message });
+        return res.status(500).json({ msg: "There was an error logging in the user", error: error.message });
     }
 }
