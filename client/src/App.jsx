@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './App.css';
 import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import SignUpForm from "./Components/SignUpForm";
@@ -7,12 +8,15 @@ import ProtectedRoutes from './Components/ProtectedRoutes';
 import { Toaster } from 'react-hot-toast';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { authAtom } from './atoms/authatom';
+import ThemeToggle from './Components/ThemeToggle';
+import Navbar from './Components/Navbar';
 
 const App = () => {
   const auth = useRecoilValue(authAtom)
   return (
     <div>
       <Toaster position="top-right" reverseOrder={false} />
+      <Navbar></Navbar>
       <Router>
         <Routes>
           <Route path='/' element={

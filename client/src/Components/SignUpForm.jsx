@@ -52,7 +52,8 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className='sign-up-container'>
+    <>
+   <div className='sign-up-container'>
       <div className="form">
         <input 
         type="text"
@@ -79,6 +80,7 @@ const SignUpForm = () => {
         <p>Have an Account? <a href="/login"><span>Sign In</span></a></p>
       </div>
     </div>
+    </>
    
   )
 }
