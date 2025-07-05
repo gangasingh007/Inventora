@@ -10,13 +10,13 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { authAtom } from './atoms/authatom';
 import ThemeToggle from './Components/ThemeToggle';
 import Navbar from './Components/Navbar';
+import LandingPage from './Pages/LandingPage';
 
 const App = () => {
   const auth = useRecoilValue(authAtom)
   return (
     <div>
       <Toaster position="top-right" reverseOrder={false} />
-      <Navbar></Navbar>
       <Router>
         <Routes>
           <Route path='/' element={
@@ -26,6 +26,7 @@ const App = () => {
           } />
           <Route path="/register" element={!auth.token ? <SignUpForm /> : <Link to="/"></Link>} />
           <Route path="/login" element={!auth.token ? <SignInForm /> : <Link to="/"></Link>} />
+          <Route path='/landing' element={<LandingPage />} />
         </Routes>
       </Router>
     </div>

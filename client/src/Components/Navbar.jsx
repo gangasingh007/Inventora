@@ -1,20 +1,16 @@
 import React from 'react';
-import ThemeToggle from './ThemeToggle';
-import { useRecoilState } from 'recoil';
-import { authAtom } from '../atoms/authatom';
+// import { Link } from 'react-router-dom';
+// import { useRecoilValue } from 'recoil';
+// import { userInfo } from '../atoms/authatom';
 
 const Navbar = () => {
-  const [auth, setAuth] = useRecoilState(authAtom);
+  // const user = useRecoilValue(userInfo);
 
   return (
     <div className='nav'>
-      {!auth.token && (
-        <div className="links">
-          <a href="/register">Sign Up</a>
-          <a href="/login">Log In</a>
-        </div>
-      )}
-      <ThemeToggle />
+      <div className="profile-image">
+        <img src="https://img.freepik.com/premium-photo/icon-define-person-allocate-stylize-250_1137696-4501.jpg?semt=ais_hybrid&w=740" alt="" />
+      </div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ export const authAtom = atom({
   default: {
     user: null,
     token: localStorage.getItem('token') || null,
-
   },
 });
 
@@ -16,3 +15,13 @@ export const isAuthenticatedSelector = selector({
     return !!auth.token;
   },
 });
+
+
+export const userInfo = atom({
+  key : "userInfo",
+  default : {
+    username : null,
+    email : null,
+    role : null
+  }
+})

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useRecoilState } from 'recoil';
-import { authAtom } from '../atoms/authatom';
+import { authAtom,userInfo } from '../atoms/authatom';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -11,7 +11,8 @@ const SignInForm = () => {
   const [auth, setAuth] = useRecoilState(authAtom);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [done, setdone] = useState(null)
+  const [done, setdone] = useState(null);
+  const [userinfo,setuserinfo] = useRecoilState(userInfo);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +23,14 @@ const SignInForm = () => {
         password
       });
       const token = res.data.token;
+      const user = res.data.user;
+      setuserinfo({
+        username : user.username,
+        email : user.email,
+        role : user.role
+      })
       localStorage.setItem("token", token);
+      localStorage.setItem("user",user)
       setAuth({ user: res.data.user, token});
       navigate("/");
       toast.success('Login Was Successfull!', {
@@ -50,7 +58,7 @@ const SignInForm = () => {
 
   return (
     <div className='sign-in-container'>
-      <div className="form">
+      <div className="form1">
         <input 
           type="text"
           placeholder='Enter Your Username'

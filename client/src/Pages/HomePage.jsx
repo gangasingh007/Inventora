@@ -1,5 +1,5 @@
 import React from 'react'
-import SwiperComponent from '../Components/Swiper'
+// import SwiperComponent from '../Components/Swiper'
 // import Swiper from '../Components/Swiper'
 
 

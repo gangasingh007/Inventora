@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil';
-import { authAtom } from '../atoms/authatom';
+import { authAtom, userInfo } from '../atoms/authatom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -14,6 +14,7 @@ const SignUpForm = () => {
   const [auth, setauth] = useRecoilState(authAtom);
   const navigate = useNavigate();
   const [done, setdone] = useState(true)
+  const [userinfo,setuserinfo] = useRecoilState(userInfo);
 
 
   const handleSubmit = async(e)=>{
@@ -26,8 +27,16 @@ const SignUpForm = () => {
         email
       });
       const token = res.data.token
+      const user = res.dtat.user
+      setuserinfo({
+        username : user.username,
+        email : user.email,
+        role : user.role
+      })
+      console.log(userInfo)
       localStorage.setItem("token",token);
-      setauth({user:res.data.user,token:token})
+      localStorage.setItem("user",user)
+      setauth({user:user,token:token})
       navigate("/")
       toast.success("Sign Up was Successfull",{
         duration : 4000,
