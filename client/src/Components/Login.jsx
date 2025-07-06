@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import {Eye} from "lucide-react";
+import {Eye, User} from "lucide-react";
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { authAtom } from '../atoms/authatom';
@@ -42,15 +42,16 @@ const Login = () => {
   }
 
   return (
-    <div className = "login-container">
+    <div className = "sign-in-container">
       <div className="form">
         <input 
         type="text"
-        placeholder='Enter Your Username'
+        placeholder="Enter your Username"
         onChange={(e)=>{
           setusername(e.target.value)
         }}
          />
+         <User className='user-icon'/>
         <div className="pass-container">
           <input 
            type={seePass ? "password" : "text"}
@@ -66,6 +67,7 @@ const Login = () => {
          <button onClick={handlesubmit}>
           {loading ? "Loading..." : "Login Now"}
          </button>
+          <p>Need an Account ? <a href="/register"><span>Register</span></a></p>
       </div>
     </div>
   )

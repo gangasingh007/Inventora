@@ -16,3 +16,162 @@ body{
     background-attachment: fixed;
     overflow-x: hidden;
 }
+
+.sign-up-container, .sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  padding: 2rem;
+}
+
+.form, .form1 {
+   background-image: radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.15) 0%, transparent 30%), radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 30%), radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 50%);
+   background-attachment: fixed;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(45, 44, 44, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+/* .form:hover, .form1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+} */
+
+/* Input Styles */
+.form input, .form1 input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  /* border-top: none; */
+  /* border-bottom: 1px solid white; */
+  background: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  /* background: rgba(255, 255, 255, 0.1); */
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form input::placeholder, .form1 input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form input:focus, .form1 input:focus {
+  border-color: #7025ba;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Button Styles */
+.form button, .form1 button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+     width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.form button::before, .form1 button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.form button:hover::before, .form1 button:hover::before {
+  left: 100%;
+}
+
+.form button:hover, .form1 button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.form button:active, .form1 button:active {
+  transform: translateY(0);
+}
+
+.form button:disabled, .form1 button:disabled {
+  background: linear-gradient(135deg, #ccc 0%, #999 100%);
+  cursor: not-allowed;
+  transform: none;
+  animation: pulse 2s infinite;
+}
+
+/* Text and Link Styles */
+.form p, .form1 p {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.form a, .form1 a {
+  color: #764ba2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.form a:hover, .form1 a:hover {
+  color: #a88ee4;
+  text-decoration: underline;
+}
+
+.form span, .form1 span {
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.user-icon{
+    position: relative;
+    top: -60px;
+    left: 260px;
+}
+
+.eye-icon{
+    position: relative;
+    left: 260px;
+    top: -60px;
+}
+.mail-icon{
+    position: relative;
+    left: 260px;
+    top: -60px;
+}
