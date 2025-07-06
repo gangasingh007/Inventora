@@ -32,11 +32,10 @@ export const register = async (req, res) => {
   }
 };
 
-// POST /api/auth/login
 export const login = async (req, res) => {
   try {
     const validated = loginSchema.parse(req.body);
-    const user = await User.findOne({ email: validated.email });
+    const user = await User.findOne({ username: validated.username });
 
     if (!user) return res.status(400).json({ message: "User not found" });
 
@@ -51,4 +50,15 @@ export const login = async (req, res) => {
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
+};
+
+export const getMe = async (req, res) => {
+  res.status(200).json({
+    user: {
+      id: req.user._id,
+      email: req.user.email,
+      username: req.user.username,
+      role: req.user.role,
+    },
+  });
 };

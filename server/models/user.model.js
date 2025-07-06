@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
         code: String,
         discount: Number,
         isRedeemed: { type: Boolean, default: false },
-      },
+      },     
     ],
   },
   { timestamps: true }

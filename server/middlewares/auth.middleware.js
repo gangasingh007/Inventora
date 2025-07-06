@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 
 export const authMiddleware = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -19,7 +19,7 @@ export const authMiddleware = async (req, res, next) => {
   }
 };
 
-// 🔐 Role-Based Middleware
+
 export const isAdmin = (req, res, next) => {
   if (req.user.role !== "admin") {
     return res.status(403).json({ message: "Forbidden: Admins only" });
