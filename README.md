@@ -24,7 +24,7 @@ A modern e-commerce platform with authentication, user management, and a beautif
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/gangasingh007/Inventora.git
    cd Inventora
    ```
 
