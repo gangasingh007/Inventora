@@ -22,7 +22,7 @@ const Navbar = () => {
           <Menu onClick={toggleMenu} size={30} />
         </div>
         <div className="user-circle">
-          <CircleUser size={30} onClick={()=>navigate('/profile')} />
+          <CircleUser className='circle-user' size={30} onClick={()=>navigate('/profile')} />
         </div>
       </div>
     </div>

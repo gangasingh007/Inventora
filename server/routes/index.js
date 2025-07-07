@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.use("/auth",authRouter);
 router.use("/protected",protectedRouter);
+router.use("/products",protectedRouter);
 
 
 export default router;

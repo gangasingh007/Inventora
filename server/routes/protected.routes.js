@@ -1,16 +1,13 @@
 import express from "express";
 import { authMiddleware , isAdmin } from "../middlewares/auth.middleware.js";
+import { adminOnly } from "../middlewares/adminOnly.js";
+import { upload } from "../middlewares/upload.js";
+import createProduct, { getAllProducts } from "../controller/product.controller.js";
 
 const router = express.Router();
 
-// Authenticated user only
-router.get("/user", authMiddleware, (req, res) => {
-  res.json({ message: `Hello, ${req.user.username}!`, role: req.user.role });
-});
+router.post("/create",authMiddleware,adminOnly,upload.single("image"),createProduct)
+router.get("/",getAllProducts)
 
-// Admin only
-router.get("/admin", authMiddleware, isAdmin, (req, res) => {
-  res.json({ message: "Welcome Admin!", user: req.user });
-});
 
 export default router;

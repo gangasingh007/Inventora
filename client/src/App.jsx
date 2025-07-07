@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import axios from 'axios';
-import { authAtom } from './atoms/authatom';
 import Login from './Components/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from './Components/ProtectedRoutes';
@@ -10,6 +9,10 @@ import Register from './Components/Register';
 import toast, { Toaster } from 'react-hot-toast';
 import LandingPage from './pages/LandingPage';
 import ProfilePage from './pages/ProflePage';
+import CreateProduct from './pages/admin/CreateProduct';
+import { authAtom } from './atoms/authAtom';
+import Products from './pages/Products';
+import Cart from './pages/Cart';
 
 function App() {
   const [auth, setAuth] = useRecoilState(authAtom);
@@ -60,6 +63,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/admin/create-product" element={<CreateProduct />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

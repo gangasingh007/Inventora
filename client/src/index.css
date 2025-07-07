@@ -12,7 +12,7 @@ body{
     background: #0f0f12;
     color: #e2e8f0;
     /* padding: 2rem; */
-    background-image: radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.15) 0%, transparent 30%), radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 30%), radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 10% 20%, rgba(4, 23, 88, 0.481) 0%, transparent 30%), radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 30%), radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 50%);
     background-attachment: fixed;
     overflow-x: hidden;
 }
@@ -30,8 +30,8 @@ body{
    background-attachment: fixed;
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(45, 44, 44, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(45, 44, 44, 0.267);
+  border: 1px solid rgba(255, 255, 255, 0.163);
   width: 100%;
   max-width: 400px;
   transition: all 0.3s ease;
@@ -511,19 +511,85 @@ body{
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
-  .menu-container {
-    width: 100%;
-    max-width: none;
+/* RESPONSIVE REFINEMENTS */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .form, .form1 {
+    padding: 2rem;
+    max-width: 70%;
   }
-  
-  .categories-list {
-    grid-template-columns: 1fr;
+
+  .logo, .logo1 {
+    font-size: 1.5rem;
   }
-  
-  .social-links {
+
+  .user-icon, .eye-icon, .mail-icon {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .right-side {
+    justify-content: center;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 15px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .form, .form1 {
+    padding: 1.5rem;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 12px;
+  }
+
+  .form input, .form1 input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .form button, .form1 button, .btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .user-icon, .eye-icon, .mail-icon {
+    left: 83% !important;
+    top: -45px !important;
+    transform: scale(0.7);
+  }
+
+  .menu-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .logo, .logo1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .menu-link {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+
+  .categories-title, .contact-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 10px;
+    text-align: center;
   }
 }
 
