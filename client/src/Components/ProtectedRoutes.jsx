@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoutes = ({ children }) => {
   const isAuthenticated = useRecoilValue(isAuthenticatedselector);
-  return isAuthenticated ? children : <Navigate to="/register" replace />;
+  return isAuthenticated ? children : <Navigate to="/landing" replace />;
 };
 
 export default ProtectedRoutes;

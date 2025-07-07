@@ -44,6 +44,9 @@ const Login = () => {
   return (
     <div className = "sign-in-container">
       <div className="form">
+        <div className='logo'>
+            Invetora
+          </div>
         <input 
         type="text"
         placeholder="Enter your Username"

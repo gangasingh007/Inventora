@@ -52,6 +52,9 @@ const Register = () => {
   return (
     <div className="sign-up-container">
       <div className="form1">
+        <div className='logo'>
+            Invetora
+          </div>
         <input
           type="text"
           placeholder="Enter your username"

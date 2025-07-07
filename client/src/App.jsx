@@ -8,6 +8,8 @@ import ProtectedRoutes from './Components/ProtectedRoutes';
 import HomePage from './pages/HomePage';
 import Register from './Components/Register';
 import toast, { Toaster } from 'react-hot-toast';
+import LandingPage from './pages/LandingPage';
+import ProfilePage from './pages/ProflePage';
 
 function App() {
   const [auth, setAuth] = useRecoilState(authAtom);
@@ -22,10 +24,6 @@ function App() {
         });
         const currentUser = res.data.user;
         setAuth({ user: currentUser, token: auth.token });
-        toast.success(`Welcome ${currentUser.username}`, {
-          duration: 4000,
-          position: 'top-center',
-        });
       } catch (err) {
         localStorage.removeItem('token');
         setAuth({ user: null, token: null });
@@ -36,11 +34,19 @@ function App() {
       }
     };
     fetchMe();
-  }, [auth.token, setAuth]); // Added dependencies
+  }, [auth.token,setAuth]); // Added dependencies
 
   return (
     <BrowserRouter>
-      <Toaster position="top-right" />
+      <Toaster 
+      position="top-right"
+      toastOptions={{
+        style:{
+          background: "black",
+          color:"white"
+        }
+      }}
+      />
       <Routes>
         <Route
           path="/"
@@ -52,6 +58,8 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );
